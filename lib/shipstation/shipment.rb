@@ -1,6 +1,7 @@
 module Shipstation
     class Shipment < ApiResource
         extend Shipstation::APIOperations::List
+        extend Shipstation::APIOperations::Retrieve
 
         class << self
             def get_rates params={}
