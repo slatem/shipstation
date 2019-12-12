@@ -12,6 +12,10 @@ module Shipstation
                 return response
             end
 
+            def mark_as_shipped params={}
+                Shipstation.request(:post, "orders/markasshipped", params)
+            end
+
             def assign_tag params={}
                 response = Shipstation.request(:post, "orders/addtag", params)
                 
