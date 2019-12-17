@@ -67,8 +67,12 @@ module Shipstation
                 payload: payload ? payload.to_json : nil,
                 headers: headers
             }).execute do |response, request, result|
-                str_response = response.to_str        
-                str_response.blank? ? '' : JSON.parse(str_response)
+                str_response = response.to_str
+                begin
+                    str_response.blank? ? '' : JSON.parse(str_response)
+                rescue JSON::ParserError => e
+                    ''
+                end
             end
         end
 
