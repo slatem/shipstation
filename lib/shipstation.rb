@@ -71,6 +71,8 @@ module Shipstation
                 begin
                     str_response.blank? ? '' : JSON.parse(str_response)
                 rescue JSON::ParserError => e
+                    Rails.logger.info "JSON ERROR"
+                    Rails.logger.info str_response
                     ''
                 end
             end
