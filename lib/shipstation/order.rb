@@ -21,6 +21,12 @@ module Shipstation
                 
                 return response
             end
+
+	    def assign_user params={}
+		 response = Shipstation.request(:post, "orders/assignuser", params)
+                
+                return response
+	    end
           
             # params: { [:username], [:password], input: [ {:order_number, ... }, { :order_number, ... } ] }
             # todo: complete in future phase
